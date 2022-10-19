@@ -1,0 +1,29 @@
+.input-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 2em;
+    width: 100%;
+}
+
+.label {
+    padding: 1em;
+    min-width: 5%;
+    border-radius: 2em 0em 0em 2em;
+    font-size: 0.9em;
+    background-color: #333644;
+    color: #f1ac25;
+    text-align: center;
+}
+
+.input {
+    padding: 1em;
+    width: 25%;
+}
+
+.btn {
+    padding: 1em;
+    min-width: 8%;
+    border-radius: 0em 2em 2em 0em;
+    background-color: #f1ac25;
+}
