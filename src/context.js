@@ -5,6 +5,7 @@ const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
     const [shortURL, setShortURL] = useState('')
+    const [loading, setLoading] = useState(true)
     const [links, setLinks] = useState([])
 
     useEffect(() => {
@@ -16,7 +17,7 @@ const AppProvider = ({ children }) => {
                 setLinks(newLinks)
             }
         }
-        getLinks()
+        getLinks().then(() => setLoading(false))
     }, [])
 
     return (
@@ -24,6 +25,8 @@ const AppProvider = ({ children }) => {
             value={{
                 shortURL,
                 setShortURL,
+                loading,
+                setLoading,
                 links,
                 setLinks,
             }}

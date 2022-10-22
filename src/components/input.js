@@ -2,8 +2,8 @@ import { customRandom, urlAlphabet } from 'nanoid'
 import { toDataURL } from 'qrcode'
 import React, { useRef } from 'react'
 import { apiCreateLink } from '../apiHandler/api-calls'
+import '../App.css'
 import { useGlobalContext } from '../context'
-import '../css/input.css'
 
 const Input = () => {
     const { setShortURL, links, setLinks } = useGlobalContext()
@@ -19,7 +19,6 @@ const Input = () => {
         }
 
         let randomString = Math.round(+new Date() * Math.random()).toString(36)
-        console.log(randomString)
         generateQR(randomString)
             .then((newQR) => {
                 apiCreateLink(urlValue, randomString, newQR)

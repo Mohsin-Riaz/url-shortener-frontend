@@ -1,8 +1,8 @@
 import React from 'react'
 import { FaArrowAltCircleDown, FaCopy, FaTimes } from 'react-icons/fa'
 import { apiDeleteLink } from '../apiHandler/api-calls'
+import '../App.css'
 import { useGlobalContext } from '../context'
-import '../css/single-link.css'
 
 const SingleLink = ({ shortURL, longURL, qrCode }) => {
     const apiURL = 'https://shrtn.onrender.com/v/'

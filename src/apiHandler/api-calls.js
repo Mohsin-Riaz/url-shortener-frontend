@@ -1,7 +1,26 @@
 import axios from 'axios'
+
 const apiURL = 'https://shrtn.onrender.com/v/'
-export const apiCreateLink = (longURL, shortURL, qrCode) => {
-    axios(
+axios.defaults.baseURL = apiURL
+
+export const apiGetLinks = async () => {
+    const response = await axios(
+        {
+            method: 'get',
+            url: apiURL,
+        },
+        {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+    )
+
+    return response.data.data
+}
+
+export const apiCreateLink = async (longURL, shortURL, qrCode) => {
+    const response = await axios(
         {
             method: 'post',
             url: apiURL + shortURL,
@@ -12,31 +31,12 @@ export const apiCreateLink = (longURL, shortURL, qrCode) => {
                 'Content-Type': 'application/json',
             },
         }
-    ).catch((err) => console.log(err))
+    )
+    return response
 }
 
-export const apiGetLinks = () => {
-    return new Promise((resolve, reject) => {
-        axios(
-            {
-                method: 'get',
-                url: apiURL,
-            },
-            {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            }
-        )
-            .then((response) => {
-                resolve(response.data.data)
-            })
-            .catch((err) => console.log(err))
-    })
-}
-
-export const apiDeleteLink = (shortURL) => {
-    axios(
+export const apiDeleteLink = async (shortURL) => {
+    const response = await axios(
         {
             method: 'delete',
             url: apiURL,
@@ -47,5 +47,7 @@ export const apiDeleteLink = (shortURL) => {
                 'Content-Type': 'application/json',
             },
         }
-    ).catch((err) => console.log(err))
+    )
+
+    return response
 }
