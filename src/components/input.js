@@ -1,4 +1,3 @@
-import { customRandom, urlAlphabet } from 'nanoid'
 import { toDataURL } from 'qrcode'
 import React, { useRef } from 'react'
 import { apiCreateLink } from '../apiHandler/api-calls'
@@ -24,12 +23,12 @@ const Input = () => {
                 apiCreateLink(urlValue, randomString, newQR)
 
                 setLinks([
-                    ...links,
                     {
                         longURL: urlValue,
                         shortURL: randomString,
                         qrCode: newQR,
                     },
+                    ...links,
                 ])
             })
             .catch((err) => console.log({ Error: err }))

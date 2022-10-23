@@ -7,6 +7,7 @@ import { useGlobalContext } from '../context'
 const SingleLink = ({ shortURL, longURL, qrCode }) => {
     const apiURL = 'https://shrtn.onrender.com/v/'
     const { links, setLinks } = useGlobalContext()
+
     const handleDelete = (e) => {
         const shortURL = e.currentTarget.id
         apiDeleteLink(shortURL)
@@ -35,6 +36,7 @@ const SingleLink = ({ shortURL, longURL, qrCode }) => {
                             shrtn.onrender.com/v/{shortURL}
                         </a>
                     </div>
+
                     <button
                         className="copy"
                         value={`${apiURL}${shortURL}`}
@@ -50,6 +52,7 @@ const SingleLink = ({ shortURL, longURL, qrCode }) => {
             <div className="qrcode">
                 <img src={qrCode} alt="qrcode" />
             </div>
+
             <button
                 id={shortURL}
                 onClick={(e) => handleDelete(e)}

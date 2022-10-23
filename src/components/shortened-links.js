@@ -1,5 +1,4 @@
 import React from 'react'
-
 import '../App.css'
 import { useGlobalContext } from '../context'
 import Loading from './loading'
@@ -23,7 +22,7 @@ const ShortenedLinks = () => {
     }
 
     return (
-        <section key={shortURL} className="links-section">
+        <section className="links-section">
             {links &&
                 links.map((item) => {
                     return <SingleLink key={shortURL} {...item} />

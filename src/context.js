@@ -11,11 +11,7 @@ const AppProvider = ({ children }) => {
     useEffect(() => {
         const getLinks = async () => {
             const newLinks = await apiGetLinks()
-            if (!newLinks) {
-                console.log('No links')
-            } else {
-                setLinks(newLinks)
-            }
+            setLinks(newLinks)
         }
         getLinks().then(() => setLoading(false))
     }, [])
