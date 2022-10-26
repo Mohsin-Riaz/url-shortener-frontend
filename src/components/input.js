@@ -12,10 +12,10 @@ const Input = () => {
         e.preventDefault()
 
         const urlValue = inputRef.current.value
-        setShortURL(urlValue)
         if (urlValue === '') {
             return
         }
+        setShortURL(urlValue)
 
         let randomString = Math.round(+new Date() * Math.random()).toString(36)
         generateQR(randomString)
@@ -36,10 +36,10 @@ const Input = () => {
 
     const generateQR = async (shortURL) => {
         try {
-            let qr = await toDataURL(`https://shrtn.onrender.com/v/${shortURL}`)
+            let qr = await toDataURL(`${process.env.BACKEND_URL}${shortURL}`)
             return qr
         } catch (err) {
-            console.error(err)
+            console.log(err)
         }
     }
 

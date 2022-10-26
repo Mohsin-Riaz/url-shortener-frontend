@@ -22,15 +22,6 @@ body {
     color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
 .single-link {
     display: flex;
     flex-wrap: wrap;
@@ -44,6 +35,23 @@ body {
     justify-content: space-evenly;
     text-align: center;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+@media only screen and (max-width: 644px) {
+    .single-link {
+        flex-direction: column;
+        margin-inline: auto;
+    }
+    .qrcode {
+        margin-top: 0em;
+        margin-bottom: 0em;
+        margin-right: 1em;
+    }
+
+    .delete-button {
+        padding-left: 0;
+        margin-inline: auto;
+    }
 }
 
 a:link {
@@ -96,7 +104,6 @@ a:visited {
 }
 
 .qrcode {
-    min-width: 15%;
     max-width: 25%;
     margin-top: 1em;
     margin-bottom: 1em;
