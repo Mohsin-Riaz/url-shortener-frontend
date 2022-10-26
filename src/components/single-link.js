@@ -5,7 +5,8 @@ import '../App.css'
 import { useGlobalContext } from '../context'
 
 const SingleLink = ({ shortURL, longURL, qrCode }) => {
-    const apiURL = process.env.FRONTEND_URL
+    const apiURL = 'https://shrtn.onrender.com/v/'
+
     const { links, setLinks } = useGlobalContext()
 
     const handleDelete = (e) => {
