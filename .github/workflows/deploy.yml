@@ -9,6 +9,8 @@ jobs:
     build:
         name: Build
         runs-on: ubuntu-latest
+        environment:
+            name: main
         env:
             VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
             VITE_FRONTEND_URL: ${{ secrets.VITE_FRONTEND_URL }}
