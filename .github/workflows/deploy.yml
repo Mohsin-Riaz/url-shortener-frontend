@@ -9,6 +9,9 @@ jobs:
     build:
         name: Build
         runs-on: ubuntu-latest
+        env:
+            VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
+            VITE_FRONTEND_URL: ${{ secrets.VITE_FRONTEND_URL }}
 
         steps:
             - name: Read Variables
@@ -27,9 +30,7 @@ jobs:
 
             - name: Build project
               run: npm run build
-              env:
-                  VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
-                  VITE_FRONTEND_URL: ${{ secrets.VITE_FRONTEND_URL }}
+
               # env:
               #     VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
 
