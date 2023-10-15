@@ -11,6 +11,9 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+            - name: Read Variables
+              run: echo "My Variables are ${{secrets.VITE_BACKEND_URL}} and ${{secrets.VITE_BACKEND_URL}}"
+
             - name: Checkout repo
               uses: actions/checkout@v2
 
@@ -27,6 +30,8 @@ jobs:
               env:
                   VITE_BACKEND_URL: ${{ secrets.VITE_BACKEND_URL }}
                   VITE_FRONTEND_URL: ${{ secrets.VITE_FRONTEND_URL }}
+              # env:
+              #     VITE_API_KEY: ${{ secrets.VITE_API_KEY }}
 
             - name: Upload production-ready build files
               uses: actions/upload-artifact@v2
