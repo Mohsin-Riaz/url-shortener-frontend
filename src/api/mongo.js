@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-// const apiURL = 'https://shrtn.onrender.com/v/'
-const apiURL = 'http://localhost:5000';
+const apiURL = 'https://shrtn.onrender.com';
 
 axios.defaults.baseURL = apiURL;
 
