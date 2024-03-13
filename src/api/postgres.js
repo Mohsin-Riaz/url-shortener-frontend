@@ -2,7 +2,6 @@ import axios from 'axios';
 axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 // axios.defaults.baseURL = 'https://shrtn.onrender.com';
 
-console.log(axios.defaults.baseURL);
 export const apiCreate = async ({ long_url, short_url }) => {
     const link = await axios.post('/post', { long_url, short_url });
     if (link.data.success === false)

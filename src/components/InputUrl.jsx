@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
-import { apiCreate } from '../api/postgres';
+import { apiCreateLink } from '../api/mongo';
+// import { apiCreate } from '../api/postgres';
 
 const InputUrl = ({ addNewLink }) => {
     const [longURL, setLongURL] = useState('');
@@ -7,14 +8,15 @@ const InputUrl = ({ addNewLink }) => {
     async function submitHandler(params) {
         let randomString = Math.round(+new Date() * Math.random()).toString(36);
 
-        const responseObject = await apiCreate({
+        const responseObject = await apiCreateLink({
             long_url: longURL,
             short_url: randomString,
         });
-        // const newLink = Object.assign(...responseObject, { animation: true });
-        // console.log({ ...responseObject[0], animation: true });
-        addNewLink({ ...responseObject[0], animation: true });
-        setLongURL('');
+        if (responseObject.success) {
+            addNewLink({ ...responseObject.data.data, animation: true });
+            setLongURL('');
+        }
+        return;
     }
 
     function keyPressHandler(e) {

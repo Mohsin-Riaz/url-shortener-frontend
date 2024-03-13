@@ -126,6 +126,12 @@ a:visited {
     cursor: pointer;
 }
 
+.dialog {
+    border: 2px solid #a83d37;
+    font-weight: bold;
+    border-radius: 0.5em;
+}
+
 .qrcode {
     display: flex;
     place-content: center;
