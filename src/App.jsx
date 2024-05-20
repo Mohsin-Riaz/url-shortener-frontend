@@ -21,7 +21,7 @@ function App() {
         //     created_at: '1984-02-01',
         // },
     ]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     function addNewLink(newLink) {
         console.log(newLink);
         setLinks([...links, newLink]);
@@ -45,7 +45,8 @@ function App() {
     if (loading)
         return (
             <main className="container">
-                <header>Url Shortener</header>
+                <header className="App-header">Url Shortener</header>
+                <InputUrl addNewLink={addNewLink} />
                 <Loading />
             </main>
         );
