@@ -7,6 +7,9 @@ const Loading = () => {
                 <h1>Loading Links...</h1>
             </div>
             <div className="loading">
+                <h3>This takes around 30 seconds</h3>
+            </div>
+            <div className="loading">
                 <CgSpinner className="loading-spinner" />
             </div>
         </>

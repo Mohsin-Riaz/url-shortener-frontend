@@ -1,11 +1,14 @@
 import React, { useRef, useState } from 'react';
 import { apiCreateLink } from '../api/mongo';
-// import { apiCreate } from '../api/postgres';
+// import { apiCreate } from '../api/postgres';  ## For postgresql
 
 const InputUrl = ({ addNewLink }) => {
     const [longURL, setLongURL] = useState('');
 
-    async function submitHandler(params) {
+    async function submitHandler() {
+        if (longURL === '') return;
+        if (!isValidHttpUrl(longURL)) return;
+
         let randomString = Math.round(+new Date() * Math.random()).toString(36);
 
         const responseObject = await apiCreateLink({
@@ -21,25 +24,36 @@ const InputUrl = ({ addNewLink }) => {
 
     function keyPressHandler(e) {
         e.preventDefault();
-        if (longURL === '') return;
         if (e.key !== 'Enter') return;
         submitHandler();
     }
 
     function buttonHandler(e) {
         e.preventDefault();
-        if (longURL === '') return;
         submitHandler();
+    }
+
+    function isValidHttpUrl(string) {
+        let url;
+
+        try {
+            url = new URL(string);
+        } catch (_) {
+            alert('Not a valid URL\nValid URL format is: http://...');
+            return false;
+        }
+
+        return url.protocol === 'http:' || url.protocol === 'https:';
     }
 
     return (
         <>
-            <form className="input-form">
+            <div className="input-form" onSubmit={false}>
                 <div className="label bxshadow">
                     <p>Address</p>
                 </div>
                 <input
-                    type="text"
+                    type="url"
                     placeholder="e.g. http://www.google.com"
                     className="input bxshadow"
                     onKeyUp={(e) => keyPressHandler(e)}
@@ -50,11 +64,11 @@ const InputUrl = ({ addNewLink }) => {
                 <button
                     className="btn bxshadow"
                     type="button"
-                    onClick={buttonHandler}
+                    onClick={(e) => buttonHandler(e)}
                 >
                     submit
                 </button>
-            </form>
+            </div>
         </>
     );
 };

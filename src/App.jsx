@@ -1,29 +1,15 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-// import { apiGetAll } from './api/postgres';
+// import { apiGetAll } from './api/postgres';  ## For postgresql
 import { apiGetLinks } from './api/mongo';
 import InputUrl from './components/InputUrl';
 import Loading from './components/Loading';
 import ShortenedLinks from './components/ShortenedLinks';
 
 function App() {
-    const [links, setLinks] = useState([
-        // {
-        //     id: 1,
-        //     long_url: 'http://google.ca',
-        //     short_url: 'placeholder',
-        //     created_at: '1984-02-01',
-        // },
-        // {
-        //     id: 2,
-        //     long_url: 'http://google.ca',
-        //     short_url: 'placeholder',
-        //     created_at: '1984-02-01',
-        // },
-    ]);
+    const [links, setLinks] = useState([]);
     const [loading, setLoading] = useState(true);
     function addNewLink(newLink) {
-        console.log(newLink);
         setLinks([...links, newLink]);
     }
 
@@ -33,7 +19,6 @@ function App() {
 
     useEffect(() => {
         (async function () {
-            // const newLinks = await apiGetAll();
             const newLinks = await apiGetLinks();
             if (newLinks.success === true) {
                 setLinks(newLinks.data.reverse());

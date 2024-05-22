@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-// import { apiDelete } from '../api/postgres';
+// import { apiDelete } from '../api/postgres'; ## For postgresql
 import Link from './Link';
 const ShortenedLinks = ({ links, deleteLink }) => {
     return (

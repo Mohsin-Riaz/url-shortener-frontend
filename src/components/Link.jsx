@@ -2,7 +2,7 @@ import { QRCodeSVG } from 'qrcode.react';
 import React, { useRef, useState } from 'react';
 import { FaArrowAltCircleDown, FaCopy, FaTimes } from 'react-icons/fa';
 import { apiDeleteLink } from '../api/mongo';
-// import { apiDelete } from '../api/postgres';
+// import { apiDelete } from '../api/postgres';  ## For postgresql
 
 const Link = (props) => {
     const Url = import.meta.env.VITE_BACKEND_URL + '/v/';
