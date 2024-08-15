@@ -1,6 +1,6 @@
 # URL Shortener Frontend
 
-Visit [URL Shortener Backend](https://github.com/Mohsin-Riaz/url-shortener-backend) to see how the backend functions.
+Visit [URL Shortener Backend](https://github.com/Mohsin-Riaz/url-shortener-spring-boot) to see how the backend functions.
 
 ## Info
 
