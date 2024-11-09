@@ -1,27 +1,107 @@
 # URL Shortener Frontend
 
-Visit [URL Shortener Backend](https://github.com/Mohsin-Riaz/url-shortener-backend) to see how the backend functions.
+A modern URL shortening application built with React and Vite, featuring QR code generation and flexible backend support for both PostgreSQL and MongoDB databases.
+Head over [here](https://github.com/Mohsin-Riaz/url-shortener-spring-boot) to see the SpringBoot backend.
 
-## Info
+## 🚀 Features
 
-Made with Vite using React framework.
+-   URL shortening with custom aliases
+-   QR code generation for shortened URLs
+-   Responsive and modern UI
+-   Support for both PostgreSQL and MongoDB backends
+-   Easy deployment configuration
+-   Mobile-friendly design
 
-## Vite-client
+## 🛠️ Technologies
 
-### Build
-`npm run build`
+-   **Frontend Framework:** React 18
+-   **Build Tool:** Vite
+-   **HTTP Client:** Axios
+-   **QR Code Generation:** qrcode.react
+-   **Icons:** React Icons
+-   **Backend:** Spring Boot (separate repository)
+-   **Database:** PostgreSQL/MongoDB (configurable)
 
-### Pre-deploy
-`npm run build`
+## 📋 Prerequisites
 
-### Deploy to Github pages
-`npm run deploy`
+Before you begin, ensure you have the following installed:
 
-# React + Vite
+-   Node.js (v14 or higher)
+-   npm or yarn
+-   Git
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Installation
 
-Currently, two official plugins are available:
+1. Clone the repository:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```bash
+git clone https://github.com/Mohsin-Riaz/url-shortener-frontend.git
+cd url-shortener
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Create a `.env` file in the root directory and configure your environment variables:
+
+```env
+VITE_BACKEND_URL=backend_url
+```
+
+## 🔧 Development
+
+To start the development server:
+
+```bash
+npm run dev
+```
+
+This will start the application in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+## 🏗️ Building for Production
+
+To create a production build:
+
+```bash
+npm run build
+```
+
+To preview the production build:
+
+```bash
+npm run preview
+```
+
+## 📦 Deployment
+
+This project is configured for GitHub Pages deployment. To deploy:
+
+```bash
+npm run deploy
+```
+
+This will build the project and deploy it to the specified GitHub Pages URL.
+
+## 📁 Project Structure
+
+```
+src/
+├── api/           # API integration
+│   ├── mongo.js   # MongoDB API endpoints
+│   └── postgres.js# PostgreSQL API endpoints
+├── components/    # React components
+│   ├── InputUrl.jsx
+│   ├── Link.jsx
+│   ├── Loading.jsx
+│   └── ShortenedLinks.jsx
+├── assets/        # Static assets
+├── App.jsx        # Main application component
+└── main.jsx      # Application entry point
+```
+
+## ⚙️ Configuration
+
+The application can be configured to work with either PostgreSQL or MongoDB backends through environment variables. Check the corresponding API files in the `src/api` directory for specific implementation details.
